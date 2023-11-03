@@ -1,0 +1,128 @@
+.notesContainer {
+  background-color: red;
+  display: flex;
+  flex-wrap: wrap;
+  height: 82%;
+}
+
+.note_header {
+  background: #e8e8e8;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+  position: fixed;
+  height: 10%;
+}
+
+.icon {
+  border-radius: 50%;
+  background-color: #0047ff;
+  /* fill: #0047FF; */
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  padding: 2px;
+  color: #fff;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 97.688%; /* 23.558px */
+  letter-spacing: 0.482px;
+}
+
+.note_name {
+  margin-left: 1rem;
+  color: #000;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+
+.notes {
+    height: 460px;
+    background: red;
+    position: relative;
+    top: 70px;
+    /* left: 0; */
+    overflow-y: scroll;
+}
+
+.note1 {
+  display: flex;
+  /* flex-wrap: wrap; */
+  align-content: center;
+  align-items: center;
+  background: #f7ecdc;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.time {
+  width: 40%;
+  margin: 5px;
+}
+
+.content {
+  margin: 5px;
+  padding: 5px;
+}
+
+.content p {
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160.188%; /* 28.834px */
+  letter-spacing: 0.63px;
+}
+
+
+
+.notes_input{
+  width: 100%;
+  height: 41%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #E8E8E8;
+}
+
+
+.notes_input>textarea{
+  background-color: white;
+  resize: none;
+  border: none;
+  outline: none;
+  margin: 5px;
+  padding: 20px;
+  height: 70%;
+  width: 99%;
+  color: #9A9A9A;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.596px;
+}
+
+
+.notes_input>.send_btn{
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  bottom: 41px;
+  right: 25px;
+}

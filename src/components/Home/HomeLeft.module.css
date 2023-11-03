@@ -1,0 +1,94 @@
+.left{
+    background: #FFF;
+    height:auto;
+    width: 25%;
+    padding: 1.5rem;
+    padding-right: 0;
+}
+
+.left>h3{
+color: #000;
+font-size: 31.52px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.63px;
+}
+
+.left>.btnDiv{
+    /* background-color: aqua; */
+    margin-top: 2rem;
+    width: 20rem;
+    padding: 1rem;
+}
+
+.left>.btnDiv>button{
+    background-color: #000;
+    border-radius: 10rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    height: 2.5rem;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 97.688%; /* 26.376px */
+    letter-spacing: 0.54px;
+}
+
+.item_container .item{
+    /* background-color: burlywood; */
+    display: flex;
+    padding: 1rem;
+    margin: 2.5px;
+    align-items: center;
+    /* justify-content:space-evenly; */
+    cursor: pointer;
+}
+
+.item_container .item:hover, .item_container .item:active{
+border-radius: 20px 0 0 20px;
+background: #F7ECDC;
+padding-right: 0;
+margin-right: 0;
+}
+
+ .item:hover .left{
+    padding-left: 0;
+}
+
+.item .icon{
+    border-radius: 50%;
+    background-color: #0047FF;
+    /* fill: #0047FF; */
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    padding: 2px;
+    color: #FFF;
+font-size: 22px;
+font-style: normal;
+font-weight: 500;
+line-height: 97.688%; /* 23.558px */
+letter-spacing: 0.482px;
+}
+
+.item .note_name{
+    color: #000;
+font-size: 15px;
+font-style: normal;
+margin-left: 1rem;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.413px;
+}
+
+
+
