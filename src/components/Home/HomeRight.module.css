@@ -1,24 +1,24 @@
 .right {
     background: #F7ECDC;
     width: 75%;
-    /* padding: 1rem; */
     display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: space-between;
     flex-direction: column;
-    position: fixed;
-    right: 0;
-    scroll-behavior: smooth;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notes_defaultContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .notes_content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 42rem;
-    height: 40rem;
-    justify-content: center;
+    text-align: center;
+    width: 600px;
 }
 
 .notes_content h1{
@@ -31,6 +31,7 @@ letter-spacing: 1px;
 }
 
 .notes_content img{
+    max-width: 100%;
     width: 39rem;
     height: 19rem;
 }
@@ -45,6 +46,11 @@ letter-spacing: 0.44px;
 }
 
 .encryption{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin-inline:auto;
     display: flex;
     padding: 0.5rem;
     width: 15rem;

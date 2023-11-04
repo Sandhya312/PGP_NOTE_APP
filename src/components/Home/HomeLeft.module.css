@@ -1,9 +1,9 @@
 .left{
     background: #FFF;
-    height:auto;
     width: 25%;
     padding: 1.5rem;
     padding-right: 0;
+    overflow-y:scroll;
 }
 
 .left>h3{

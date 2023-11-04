@@ -13,6 +13,13 @@ const HomeLeft = (prop) => {
     }
   }, []);
 
+  useEffect(()=>{
+    const localStorageItems = JSON.parse(localStorage.getItem("groups"));
+    if (localStorageItems) {
+      setItems(localStorageItems);
+    }
+  },[prop.isOpen]);
+
   return (
     <div className={classes.left}>
       <h3>Pocket Notes</h3>
@@ -20,11 +27,11 @@ const HomeLeft = (prop) => {
         <button onClick={()=>prop.open(true)} >+ Create Notes group </button>
       </div>
       <div className={classes.item_container}>
-        {items.map((item) => {
+        {items.map((item,i) => {
           return (
             <div
               className={classes.item}
-              key={item.id}
+              key={i}
               onClick={() => prop.itemHandler(item)}
             >
               <div className={classes.icon} style={{backgroundColor:item.icon_color}} >

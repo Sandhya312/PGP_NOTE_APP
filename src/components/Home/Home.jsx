@@ -10,14 +10,13 @@ const Home = () =>{
     const [isOpen,setIsOpen] = useState(false);
    const [id,setId] = useState(0);
     const LeftitemHandler=(item)=>{
-        console.log("item in home: ",item.id);
        setContent(item);
        setId(item.id);
     }
 
-    return <div className={classes.home} onClick={()=>console.log("clicked")} >
-       <HomeLeft open={setIsOpen} itemHandler={LeftitemHandler} />
-       <HomeRight content={content} clickedItemId={id}  />
+    return <div className={classes.home} >
+       <HomeLeft open={setIsOpen} isOpen={isOpen} itemHandler={LeftitemHandler} />
+       <HomeRight content={content} LeftitemHandler={LeftitemHandler} clickedItemId={id}  />
        <Modal open={isOpen} onClose={()=>setIsOpen(false)} />
 
     </div>

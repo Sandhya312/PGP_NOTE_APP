@@ -1,7 +1,7 @@
 .home{
     display: flex;
-    background-color: red;
     min-height:44.25em;
+    height: 100vh;
     position: relative;
-    z-index: 1;
+    overflow: hidden;
 }

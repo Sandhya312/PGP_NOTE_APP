@@ -46,40 +46,13 @@ const Modal = ({ open, onClose }) => {
     const strArr = inputString.split(" ");
     const initialChar = strArr.map((item)=>item[0].toUpperCase());
     const icon = initialChar.join("");
-    console.log("icon",icon);
     return icon;
   }
 
   const handleCreate = () => {
+    let group = { "id":groups.length, "name": grp_name,"icon":group_icon(grp_name) ,  "icon_color": color,"content":[], };
     setIsDisable(false);
     setGrpName('');
-    let group = { "id":groups.length+1, "name": grp_name,"icon":group_icon(grp_name) ,  "icon_color": color,"content": [
-        {
-          time: "09:10 AM",
-          date: "9 March 2023",
-          body: "Another productive way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers.",
-        },
-        {
-          time: "06:30 AM",
-          date: "8 March 2009",
-          body: "Another productive way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers.",
-        },
-        {
-          time: "12:50 AM",
-          date: "5 March 2023",
-          body: "Another productive way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers.",
-        },
-        {
-          time: "11:15 PM",
-          date: "2 March 2024",
-          body: "Another productive way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers.",
-        },
-        {
-          time: "10:10 AM",
-          date: "6 March 2022",
-          body: "Another productive way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers.",
-        },
-      ], };
     setGroup([...groups, group]);
 
     // Update localStorage with the new data
@@ -94,7 +67,7 @@ const Modal = ({ open, onClose }) => {
 
   return ReactDOM.createPortal(
     <>
-      <div className={classes.overlay} />
+      <div className={classes.overlay} onClick={()=>{setIsDisable(false); onClose()}} />
       <div className={classes.modal_styles}>
         <div className={classes.create_group}>
           <h4>Create New Notes group</h4>

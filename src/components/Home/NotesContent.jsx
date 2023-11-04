@@ -2,68 +2,50 @@
 /* eslint-disable react/no-unescaped-entities */
 import classes from "./NotesContent.module.css";
 import send from "../../assets/send.png";
-import { useEffect, useState } from "react";
 
 const NotesContent = (props) => {
-  const [localStorageItems, setLocalStorageItems] = useState([]);
-  const [noteContent, setNoteContent] = useState([]);
-
-  // useEffect(() => {
-  //   let content = JSON.parse(localStorage.getItem("groups"));
-  //   if (props.id != 0) {
-  //     console.log("content", content[props.id].content, "propd id", props.id);
-  //     let selectGroup = content[props.id].content;
-  //     console.log("selectedgroup", selectGroup);
-
-  //     setLocalStorageItems(selectGroup);
-  //   }
-  // }, [props.id]);
-  useEffect(() => {
-    let content = JSON.parse(localStorage.getItem("groups"));
-    if (props.id != 0 && content[props.id] && content[props.id].content) {
-      console.log("content", content[props.id].content, "propd id", props.id);
-      let selectGroup = content[props.id].content;
-      console.log("selectedgroup", selectGroup);
-  
-      setLocalStorageItems(selectGroup);
-    }
-  }, [props.id]);
-  
-
-  console.log("local items,", localStorageItems);
-
   const noteSubmited = (e) => {
-    let content = JSON.parse(localStorage.getItem("groups"));
     e.preventDefault();
     const textarea = document.querySelector("textarea[name='notes']");
-    const currentDateTime = new Date(); // Create a new Date object with the current date and time
-    const currentTime = currentDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-    const currentDate = currentDateTime.toLocaleDateString([], {  month: 'long',day: 'numeric', year: 'numeric' });
-  
+    const currentDateTime = new Date();
+    const currentTime = currentDateTime.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const currentDate = currentDateTime.toLocaleDateString([], {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+
     const noteText = {
       body: textarea.value,
       date: currentDate,
       time: currentTime,
     };
 
-    content[props.id].content=[noteText,...content[props.id].content];
+    //Storing in local storage
+    let content = JSON.parse(localStorage.getItem("groups"));
+    content[props.id].content = props.body.content;
+    localStorage.setItem("groups", JSON.stringify(content));
+    textarea.value = "";
 
-    console.log("content notetext,",content);
+    //Storing in state
+    let newObject = { id: 0, name: "", icon: "", icon_color: "", content: [] };
+    newObject.content = [noteText, ...props.body.content];
+    newObject = {...newObject, id: props.body.id, name: props.body.name, icon: props.body.icon, icon_color: props.body.icon_color}
 
-    localStorage.setItem("groups",JSON.stringify(content));
-
-
-    console.log("note submitted", noteText);
-    setNoteContent([...noteContent,noteText]);
-    
-  console.log("usestate items,", noteContent);
-    // Now you can do something with the `noteText` value, like saving it to state or sending it to the server.
+    props.LeftitemHandler(newObject);
   };
 
   return (
     <div className={classes.notesContainer}>
       <div className={classes.note_header}>
-        <div className={classes.icon}>
+        <div
+          className={classes.icon}
+          style={{ backgroundColor: props.body.icon_color }}
+        >
           <h4>{props.body.icon} </h4>{" "}
         </div>
         <div className={classes.note_name}>
@@ -72,14 +54,13 @@ const NotesContent = (props) => {
       </div>
 
       <div className={classes.notes}>
-        {localStorageItems.map((item, i) => {
+        {props.body.content.map((item, i) => {
           return (
             <div className={classes.note1} key={i}>
               <div className={classes.time}>
                 <p>{item.time}</p>
                 <p> {item.date} </p>
               </div>
-
               <div className={classes.content}>
                 <p>{item.body}</p>
               </div>
@@ -97,7 +78,7 @@ const NotesContent = (props) => {
           placeholder="Enter your text here....."
         ></textarea>
         <button className={classes.send_btn} onClick={(e) => noteSubmited(e)}>
-          <img src={send} alt="send"  />
+          <img src={send} alt="send" />
         </button>
       </div>
     </div>
